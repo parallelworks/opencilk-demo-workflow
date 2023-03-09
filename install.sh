@@ -25,7 +25,7 @@ tar -xvzf cmake-3.25.3.tar.gz
 # Build CMake
 cd cmake-3.25.3
 echo Building CMake...
-time echo './bootstrap && make && sudo make install' | scl enable devtoolset-7 bash
+time echo './bootstrap --parallel=32 && make -j 32 && sudo make install' | scl enable devtoolset-7 bash
 
 # Download OpenCilk source
 cd $install_dir
