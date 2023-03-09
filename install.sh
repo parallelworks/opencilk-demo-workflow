@@ -28,6 +28,7 @@ echo Building CMake...
 time echo './bootstrap && make && sudo make install' | scl enable devtoolset-7 bash
 
 # Download OpenCilk source
+cd $install_dir
 git clone -b opencilk/v2.0 https://github.com/OpenCilk/infrastructure
 infrastructure/tools/get $(pwd)/opencilk
 
