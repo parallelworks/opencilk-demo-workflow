@@ -7,10 +7,14 @@
 #============================
 
 # Select where to install everything.
-# /var/lib/ is persistent on cloud images
+# /var/lib/pworks is persistent on cloud images
 # $HOME, although persistent, is not a good choice
-# since there are permissions issues.
-install_dir="/var/lib/pworks"
+# if you want to make an image since there are 
+# permissions issues. On the other hand, if you
+# want to share the results of the build with all
+# the other nodes in the cluster, $HOME is a good
+# starting point.
+install_dir="/home/$PW_USER/pworks"
 sudo mkdir -p $install_dir
 sudo chmod a+rwx --recursive $install_dir
 cd $install_dir

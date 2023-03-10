@@ -3,8 +3,13 @@
 # Run tests with OpenCilk
 #================================
 
-# Compile code without cilk
+# Download code
+git clone https://github.com/opencilk/tutorial
 
-# Compile code with cilk
+# Compile code
+cd tutorial
+$HOME/build/bin/clang qsort.c -o qsort -O3 -fopencilk
 
-# Run each
+# Run code
+CILK_NWORKERS=8 ./qsort 100000
+
