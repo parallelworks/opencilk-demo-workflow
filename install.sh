@@ -47,3 +47,5 @@ time scl enable devtoolset-7 "infrastructure/tools/build $(pwd)/opencilk $(pwd)/
 # Ensure all users have access
 sudo chmod a+rwx --recursive $install_dir
 
+# Add install_dir to path
+sudo -s eval echo export PATH="${install_dir}/build/bin:$PATH"
