@@ -19,6 +19,10 @@ sudo mkdir -p $install_dir
 sudo chmod a+rwx --recursive $install_dir
 cd $install_dir
 
+# Sometimes software collection managers are not 
+# already installed on the image.
+sudo yum install -y centos-release-scl
+
 # Install gcc7.3.1, OpenCilk requires gcc5.1+
 sudo yum install -y devtoolset-7
 
