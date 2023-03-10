@@ -34,7 +34,7 @@ tar -xvzf cmake-3.25.3.tar.gz
 # Build CMake
 cd cmake-3.25.3
 echo Building CMake...
-time echo './bootstrap --parallel=32 && make -j 32 && sudo make install' | scl enable devtoolset-7 bash
+time scl enable devtoolset-7 "./bootstrap --parallel=32 && make -j 32 && sudo make install"
 
 # Download OpenCilk source
 cd $install_dir
@@ -42,7 +42,8 @@ git clone -b opencilk/v2.0 https://github.com/OpenCilk/infrastructure
 infrastructure/tools/get $(pwd)/opencilk
 
 echo Building OpenCilk...
-time echo 'infrastructure/tools/build $(pwd)/opencilk $(pwd)/build' | scl enable devtoolset-7 bash
+time scl enable devtoolset-7 "infrastructure/tools/build $(pwd)/opencilk $(pwd)/build"
 
 # Ensure all users have access
 sudo chmod a+rwx --recursive $install_dir
+
