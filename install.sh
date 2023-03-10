@@ -14,7 +14,8 @@
 # want to share the results of the build with all
 # the other nodes in the cluster, $HOME is a good
 # starting point.
-install_dir="/home/$PW_USER/pworks"
+#install_dir="/home/$PW_USER/pworks"
+install_dir="/var/lib/pworks"
 sudo mkdir -p $install_dir
 sudo chmod a+rwx --recursive $install_dir
 cd $install_dir
