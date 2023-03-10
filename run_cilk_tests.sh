@@ -3,6 +3,11 @@
 # Run tests with OpenCilk
 #================================
 
+#SBATCH --nodes=1
+#SBATCH --exclusive
+
+source ~/.bashrc
+
 # Set inputs
 test_name=$1
 test_num=$2
@@ -26,11 +31,11 @@ git clone https://github.com/opencilk/tutorial
 # Compile code
 cd tutorial
 clang ${test_name}.c -o ${test_name}.o -O3 -fopencilk
+cd ..
 
 # Run code
 CILK_NWORKERS=$worker_num
 for (( ii=0; ii<$test_num; ii++ ))
 do
-    ./${test_name}.o ${test_size} >> ${result_log}
+    ./tutorial/${test_name}.o ${test_size} >> ${result_log}
 done
-
