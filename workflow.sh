@@ -114,6 +114,10 @@ ssh ${ssh_options} $WFP_wuser@$WFP_whost hostname
 echod "Install OpenCilk on a compute node"
 ssh -f ${ssh_options} $WFP_wuser@$WFP_whost sbatch --output=${WFP_rundir}/std.out.install --wrap "\"git clone https://github.com/parallelworks/opencilk-demo-workflow; ./opencilk-demo-workflow/install.sh\""
 
+# Wait a bit for the job to get started and register in
+# the queue.
+sleep ${WFP_sleep_time}
+
 echod "Monitoring status of the build"
 # Check if there are any other running jobs on the cluster
 # by counting the number of lines in squeue output. One
