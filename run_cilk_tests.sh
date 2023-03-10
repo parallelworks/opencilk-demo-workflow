@@ -39,3 +39,7 @@ for (( ii=0; ii<$test_num; ii++ ))
 do
     ./tutorial/${test_name}.o ${test_size} >> ${result_log}
 done
+
+# Create a list of just the times
+bn=$(basename ${result_log} .log)
+grep Time ${result_log} | awk '{print $3}' > ${bn}.csv

@@ -4,10 +4,13 @@
 # Compiled binaries
 *.o
 
-# Log files
+# Log files and raw data
 *.log
+*.csv
 
 # OpenCilk tutorial repo that gets cloned here
 tutorial/
 
+# Jupyter checkpoints
+.ipynb_checkpoints/
 
