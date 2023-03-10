@@ -4,3 +4,10 @@
 # Compiled binaries
 *.o
 
+# Log files
+*.log
+
+# OpenCilk tutorial repo that gets cloned here
+tutorial/
+
+
