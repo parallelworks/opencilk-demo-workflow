@@ -112,7 +112,8 @@ echod "Check connection to cluster"
 ssh ${ssh_options} $WFP_wuser@$WFP_whost hostname
 
 echod "Install OpenCilk on a compute node"
-ssh -f ${ssh_options} $WFP_wuser@$WFP_whost sbatch --output=${WFP_rundir}/std.out.install --wrap "\"git clone https://github.com/parallelworks/opencilk-demo-workflow; ./opencilk-demo-workflow/install.sh\""
+# Force use of all CPU on worker node with --exclusive
+ssh -f ${ssh_options} $WFP_wuser@$WFP_whost sbatch --exclusive --output=${WFP_rundir}/std.out.install --wrap "\"git clone https://github.com/parallelworks/opencilk-demo-workflow; ./opencilk-demo-workflow/install.sh\""
 
 # Wait a bit for the job to get started and register in
 # the queue.
